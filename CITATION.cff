@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the report."
+title: "Learning to Shift Without a Torque Sensor: A Data-Driven Extension of the AutoGear Automatic Derailleur Project"
+repository-code: "https://github.com/TancredeA/autogear-embedded-ml"
+authors:
+  - given-names: "Tancrède"
+    family-names: "Amiel"
+version: 1.0.0
+date-released: 2026-10-21
+license: MIT

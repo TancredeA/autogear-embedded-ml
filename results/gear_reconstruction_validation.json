@@ -1,0 +1,18 @@
+{
+ "state_accuracy": 0.8446059250978201,
+ "state_accuracy_all_seconds": 0.7933299646286003,
+ "event_precision": 0.4375,
+ "event_recall": 0.6,
+ "true_shifts": 35,
+ "reconstructed_shifts": 48,
+ "minutes": 32.983333333333334,
+ "levels_detected": 7,
+ "levels_true": 9,
+ "development_x_teeth": {
+  "15": 85.83,
+  "17": 86.22,
+  "19": 85.57,
+  "21": 85.62,
+  "27": 85.77
+ }
+}

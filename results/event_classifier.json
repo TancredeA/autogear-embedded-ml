@@ -1,0 +1,358 @@
+{
+ "tests": {
+  "inria_1": {
+   "rider": "inria",
+   "group": "inria",
+   "hours": 2.7172222222222224,
+   "EV": {
+    "agree_pm1": 0.7031281946432223,
+    "exact": 0.3673072991208342,
+    "shifts_per_h": 142.4248619914128,
+    "reversal": 0.041343669250646,
+    "cadence_band": 0.562492879115871,
+    "hours": 2.7172222222222224,
+    "params": {
+     "th": 0.6,
+     "cool": 4
+    },
+    "size_bytes": 47904,
+    "offline": {
+     "pr_auc": 0.11412206845415185,
+     "prevalence": 0.0316055625790139,
+     "event_f1": 0.31596638655462184,
+     "event_precision": 0.31864406779661014,
+     "event_recall": 0.31333333333333335
+    }
+   }
+  },
+  "inria_2": {
+   "rider": "inria",
+   "group": "inria",
+   "hours": 2.7527777777777778,
+   "EV": {
+    "agree_pm1": 0.7916246215943491,
+    "exact": 0.4374369323915237,
+    "shifts_per_h": 152.2098890010091,
+    "reversal": 0.08353221957040573,
+    "cadence_band": 0.6492695438831271,
+    "hours": 2.7527777777777778,
+    "params": {
+     "th": 0.6,
+     "cool": 2
+    },
+    "size_bytes": 44728,
+    "offline": {
+     "pr_auc": 0.1048986510636344,
+     "prevalence": 0.0337879727216367,
+     "event_f1": 0.32026143790849676,
+     "event_precision": 0.34385964912280703,
+     "event_recall": 0.2996941896024465
+    }
+   }
+  },
+  "inria_3": {
+   "rider": "inria",
+   "group": "inria",
+   "hours": 2.8169444444444443,
+   "EV": {
+    "agree_pm1": 0.6885908687506163,
+    "exact": 0.3030273148604674,
+    "shifts_per_h": 218.676659106597,
+    "reversal": 0.16883116883116883,
+    "cadence_band": 0.7029626354189698,
+    "hours": 2.8169444444444443,
+    "params": {
+     "th": 0.6,
+     "cool": 2
+    },
+    "size_bytes": 39456,
+    "offline": {
+     "pr_auc": 0.1073883031999858,
+     "prevalence": 0.029959514170040485,
+     "event_f1": 0.3161397670549085,
+     "event_precision": 0.3114754098360656,
+     "event_recall": 0.32094594594594594
+    }
+   }
+  },
+  "inria_4": {
+   "rider": "inria",
+   "group": "inria",
+   "hours": 2.125277777777778,
+   "EV": {
+    "agree_pm1": 0.8610639132139589,
+    "exact": 0.3126388707358515,
+    "shifts_per_h": 147.27486603058423,
+    "reversal": 0.051118210862619806,
+    "cadence_band": 0.5906424953345775,
+    "hours": 2.125277777777778,
+    "params": {
+     "th": 0.6,
+     "cool": 2
+    },
+    "size_bytes": 33912,
+    "offline": {
+     "pr_auc": 0.08429315919972409,
+     "prevalence": 0.030700603516137497,
+     "event_f1": 0.34739454094292804,
+     "event_precision": 0.41420118343195267,
+     "event_recall": 0.29914529914529914
+    }
+   }
+  },
+  "di2_edge1040_2022 A>B": {
+   "rider": "di2_edge1040_2022",
+   "group": "single-ride",
+   "hours": 0.2722222222222222,
+   "EV": {
+    "agree_pm1": 0.35918367346938773,
+    "exact": 0.1816326530612245,
+    "shifts_per_h": 0.0,
+    "reversal": 0.0,
+    "cadence_band": 0.4916573971078977,
+    "hours": 0.2722222222222222,
+    "params": {
+     "th": 0.6,
+     "cool": 8
+    },
+    "size_bytes": 3020,
+    "offline": {
+     "pr_auc": 0.042519096425414106,
+     "prevalence": 0.026288117770767613,
+     "event_f1": 0.0,
+     "event_precision": 0.0,
+     "event_recall": 0.0
+    }
+   }
+  },
+  "di2_edge1040_2022 B>A": {
+   "rider": "di2_edge1040_2022",
+   "group": "single-ride",
+   "hours": 0.27194444444444443,
+   "EV": {
+    "agree_pm1": 0.7701736465781409,
+    "exact": 0.02349336057201226,
+    "shifts_per_h": 3.677221654749745,
+    "reversal": 0.0,
+    "cadence_band": 0.11991199119911991,
+    "hours": 0.27194444444444443,
+    "params": {
+     "th": 0.6,
+     "cool": 8
+    },
+    "size_bytes": 2132,
+    "offline": {
+     "pr_auc": 0.007860337473257348,
+     "prevalence": 0.00631578947368421,
+     "event_f1": 0.0,
+     "event_precision": 0.0,
+     "event_recall": 0.0
+    }
+   }
+  },
+  "edge1030_2020 A>B": {
+   "rider": "edge1030_2020",
+   "group": "single-ride",
+   "hours": 0.55,
+   "EV": {
+    "agree_pm1": 0.17727272727272728,
+    "exact": 0.06161616161616162,
+    "shifts_per_h": 5.454545454545454,
+    "reversal": 0.0,
+    "cadence_band": 0.21542083578575633,
+    "hours": 0.55,
+    "params": {
+     "th": 0.6,
+     "cool": 8
+    },
+    "size_bytes": 7848,
+    "offline": {
+     "pr_auc": 0.0697563669505043,
+     "prevalence": 0.03587903639159405,
+     "event_f1": 0.07407407407407407,
+     "event_precision": 0.2727272727272727,
+     "event_recall": 0.04285714285714286
+    }
+   }
+  },
+  "edge1030_2020 B>A": {
+   "rider": "edge1030_2020",
+   "group": "single-ride",
+   "hours": 0.55,
+   "EV": {
+    "agree_pm1": 0.37272727272727274,
+    "exact": 0.2318181818181818,
+    "shifts_per_h": 36.36363636363636,
+    "reversal": 0.0,
+    "cadence_band": 0.3538800220143093,
+    "hours": 0.55,
+    "params": {
+     "th": 0.6,
+     "cool": 8
+    },
+    "size_bytes": 8540,
+    "offline": {
+     "pr_auc": 0.05231794475737009,
+     "prevalence": 0.027678113787801127,
+     "event_f1": 0.20930232558139536,
+     "event_precision": 0.28125,
+     "event_recall": 0.16666666666666666
+    }
+   }
+  },
+  "edge530_2020 A>B": {
+   "rider": "edge530_2020",
+   "group": "single-ride",
+   "hours": 1.1513888888888888,
+   "EV": {
+    "agree_pm1": 0.5230398069963812,
+    "exact": 0.19662243667068757,
+    "shifts_per_h": 0.0,
+    "reversal": 0.0,
+    "cadence_band": 0.23832843617368593,
+    "hours": 1.1513888888888888,
+    "params": {
+     "th": 0.6,
+     "cool": 8
+    },
+    "size_bytes": 4168,
+    "offline": {
+     "pr_auc": 0.060618627298724616,
+     "prevalence": 0.027335456475583865,
+     "event_f1": 0.0,
+     "event_precision": 0.0,
+     "event_recall": 0.0
+    }
+   }
+  },
+  "edge530_2020 B>A": {
+   "rider": "edge530_2020",
+   "group": "single-ride",
+   "hours": 1.191111111111111,
+   "EV": {
+    "agree_pm1": 0.5401119402985075,
+    "exact": 0.21012126865671643,
+    "shifts_per_h": 20.988805970149254,
+    "reversal": 0.0,
+    "cadence_band": 0.4675234456408475,
+    "hours": 1.191111111111111,
+    "params": {
+     "th": 0.6,
+     "cool": 8
+    },
+    "size_bytes": 8776,
+    "offline": {
+     "pr_auc": 0.055040756736753,
+     "prevalence": 0.02011422895455674,
+     "event_f1": 0.26573426573426573,
+     "event_precision": 0.3064516129032258,
+     "event_recall": 0.2345679012345679
+    }
+   }
+  },
+  "edge810_2013 A>B": {
+   "rider": "edge810_2013",
+   "group": "single-ride",
+   "hours": 0.6461111111111111,
+   "EV": {
+    "agree_pm1": 0.3710232158211522,
+    "exact": 0.1775580395528805,
+    "shifts_per_h": 20.12037833190026,
+    "reversal": 0.0,
+    "cadence_band": 0.5273297491039427,
+    "hours": 0.6461111111111111,
+    "params": {
+     "th": 0.6,
+     "cool": 8
+    },
+    "size_bytes": 8596,
+    "offline": {
+     "pr_auc": 0.06302222812973778,
+     "prevalence": 0.03221593382673052,
+     "event_f1": 0.24175824175824176,
+     "event_precision": 0.6470588235294118,
+     "event_recall": 0.14864864864864866
+    }
+   }
+  },
+  "edge810_2013 B>A": {
+   "rider": "edge810_2013",
+   "group": "single-ride",
+   "hours": 0.6458333333333334,
+   "EV": {
+    "agree_pm1": 0.4395698924731183,
+    "exact": 0.16086021505376344,
+    "shifts_per_h": 10.838709677419354,
+    "reversal": 0.0,
+    "cadence_band": 0.3398544131028208,
+    "hours": 0.6458333333333334,
+    "params": {
+     "th": 0.6,
+     "cool": 8
+    },
+    "size_bytes": 8088,
+    "offline": {
+     "pr_auc": 0.08430869221776789,
+     "prevalence": 0.029616724738675958,
+     "event_f1": 0.2173913043478261,
+     "event_precision": 0.4166666666666667,
+     "event_recall": 0.14705882352941177
+    }
+   }
+  },
+  "elemnt_2019 A>B": {
+   "rider": "elemnt_2019",
+   "group": "single-ride",
+   "hours": 1.5155555555555555,
+   "EV": {
+    "agree_pm1": 0.749266862170088,
+    "exact": 0.23313782991202345,
+    "shifts_per_h": 0.0,
+    "reversal": 0.0,
+    "cadence_band": 0.5331825037707391,
+    "hours": 1.5155555555555555,
+    "params": {
+     "th": 0.6,
+     "cool": 8
+    },
+    "size_bytes": 2376,
+    "offline": {
+     "pr_auc": 0.011374054511272682,
+     "prevalence": 0.007007981312049835,
+     "event_f1": 0.0,
+     "event_precision": 0.0,
+     "event_recall": 0.0
+    }
+   }
+  },
+  "elemnt_2019 B>A": {
+   "rider": "elemnt_2019",
+   "group": "single-ride",
+   "hours": 1.7052777777777777,
+   "EV": {
+    "agree_pm1": 0.6535266330021177,
+    "exact": 0.15002443394689688,
+    "shifts_per_h": 2.3456589021013197,
+    "reversal": 0.0,
+    "cadence_band": 0.37809036658141515,
+    "hours": 1.7052777777777777,
+    "params": {
+     "th": 0.6,
+     "cool": 8
+    },
+    "size_bytes": 4900,
+    "offline": {
+     "pr_auc": 0.013573244207010277,
+     "prevalence": 0.008247422680412371,
+     "event_f1": 0.0,
+     "event_precision": 0.0,
+     "event_recall": 0.0
+    }
+   }
+  }
+ },
+ "frozen": {
+  "th": 0.6,
+  "cool": 8
+ }
+}

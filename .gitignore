@@ -1,0 +1,23 @@
+# data are downloaded and rebuilt, never versioned
+data/raw/
+data/processed/
+# firmware build products and generated test vectors
+firmware/build/
+firmware/host_test/host_test
+firmware/host_test/vectors.csv
+# LaTeX intermediates
+report/*.aux
+report/*.bbl
+report/*.blg
+report/*.log
+report/*.out
+report/*.fls
+report/*.fdb_latexmk
+report/*.synctex.gz
+# Python
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.venv/
+logs/
+report/main.pdf

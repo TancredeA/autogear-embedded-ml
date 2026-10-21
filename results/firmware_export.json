@@ -1,0 +1,12 @@
+{
+ "max_abs_difference_vs_xgboost": 0.0,
+ "flash_bytes_arrays": 13904,
+ "trees": 100,
+ "depth": 4,
+ "test_rides": [
+  "inria_4",
+  "edge810_2013",
+  "di2_edge1040_2022"
+ ],
+ "test_seconds": 14261
+}

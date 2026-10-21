@@ -1,0 +1,81 @@
+{
+ "hours": 18.91,
+ "rides": 9,
+ "riders": 6,
+ "segments": 75,
+ "shift_share": 0.02632120090479128,
+ "per_ride": [
+  {
+   "ride": "inria_1",
+   "hours": 2.717,
+   "gears": 10,
+   "shifts_per_hour": 114.823,
+   "coasting": 0.097,
+   "power_available": 1.0
+  },
+  {
+   "ride": "inria_2",
+   "hours": 2.753,
+   "gears": 9,
+   "shifts_per_hour": 123.512,
+   "coasting": 0.091,
+   "power_available": 1.0
+  },
+  {
+   "ride": "inria_3",
+   "hours": 2.817,
+   "gears": 9,
+   "shifts_per_hour": 109.338,
+   "coasting": 0.103,
+   "power_available": 1.0
+  },
+  {
+   "ride": "inria_4",
+   "hours": 2.125,
+   "gears": 9,
+   "shifts_per_hour": 110.103,
+   "coasting": 0.019,
+   "power_available": 1.0
+  },
+  {
+   "ride": "elemnt_2019",
+   "hours": 3.221,
+   "gears": 4,
+   "shifts_per_hour": 31.669,
+   "coasting": 0.246,
+   "power_available": 1.0
+  },
+  {
+   "ride": "edge530_2020",
+   "hours": 2.342,
+   "gears": 7,
+   "shifts_per_hour": 84.098,
+   "coasting": 0.295,
+   "power_available": 0.997
+  },
+  {
+   "ride": "edge810_2013",
+   "hours": 1.292,
+   "gears": 9,
+   "shifts_per_hour": 109.912,
+   "coasting": 0.045,
+   "power_available": 1.0
+  },
+  {
+   "ride": "edge1030_2020",
+   "hours": 1.1,
+   "gears": 10,
+   "shifts_per_hour": 112.727,
+   "coasting": 0.105,
+   "power_available": 1.0
+  },
+  {
+   "ride": "di2_edge1040_2022",
+   "hours": 0.544,
+   "gears": 9,
+   "shifts_per_hour": 60.643,
+   "coasting": 0.073,
+   "power_available": 1.0
+  }
+ ]
+}

@@ -1,0 +1,161 @@
+"""Export the boosted trees to plain C arrays for the microcontroller.
+
+Layout: every tree is stored as a *complete* binary tree of depth D (= max_depth = 4), so no child
+pointers are needed. Internal node i has children 2i+1 (x < threshold) and 2i+2 (x >= threshold),
+the same convention as XGBoost. A branch that XGBoost pruned early is padded: its sub-tree gets
+threshold +inf (always left) and every padded leaf repeats the pruned leaf's value.
+
+Per tree: (2^D - 1) float32 thresholds, (2^D - 1) uint8 feature indices, 2^D float32 leaves.
+For 100 trees of depth 4: 100 * (15*4 + 15 + 16*4) = 13,900 bytes, plus one float for the bias.
+A prediction is exactly D comparisons per tree and one addition per tree, with no data-dependent
+memory layout: the same cost for every input, which makes the timing of the controller predictable.
+"""
+from __future__ import annotations
+
+import json
+from dataclasses import dataclass
+from pathlib import Path
+
+import numpy as np
+import xgboost as xgb
+
+
+@dataclass
+class CompleteForest:
+    depth: int
+    base_score: float
+    thresholds: np.ndarray    # (n_trees, 2^D - 1) float32
+    features: np.ndarray      # (n_trees, 2^D - 1) uint8
+    leaves: np.ndarray        # (n_trees, 2^D) float32
+
+    @property
+    def n_trees(self) -> int:
+        return self.thresholds.shape[0]
+
+    @property
+    def n_internal(self) -> int:
+        return 2 ** self.depth - 1
+
+    def flash_bytes(self) -> int:
+        return self.thresholds.nbytes + self.features.nbytes + self.leaves.nbytes + 4
+
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        """Reference implementation of the C inference (float32 accumulation, tree order)."""
+        X = np.asarray(X, np.float32)
+        out = np.full(len(X), np.float32(self.base_score), np.float32)
+        rows = np.arange(len(X))
+        for t in range(self.n_trees):
+            idx = np.zeros(len(X), int)
+            for _ in range(self.depth):
+                go_right = X[rows, self.features[t, idx]] >= self.thresholds[t, idx]
+                idx = 2 * idx + 1 + go_right
+            out = out + self.leaves[t, idx - self.n_internal]
+        return out
+
+
+def _base_score(model: dict) -> float:
+    raw = model["learner"]["learner_model_param"]["base_score"]
+    return float(raw.strip("[]").split(",")[0])
+
+
+def from_booster(booster: xgb.Booster, depth: int = 4) -> CompleteForest:
+    model = json.loads(booster.save_raw("json"))
+    trees = model["learner"]["gradient_booster"]["model"]["trees"]
+    n_int, n_leaf = 2 ** depth - 1, 2 ** depth
+    thr = np.full((len(trees), n_int), np.inf, np.float32)
+    feat = np.zeros((len(trees), n_int), np.uint8)
+    leaves = np.zeros((len(trees), n_leaf), np.float32)
+    for ti, tree in enumerate(trees):
+        left, right = tree["left_children"], tree["right_children"]
+        cond, split = tree["split_conditions"], tree["split_indices"]
+
+        def fill(node: int, pos: int, level: int) -> None:
+            if left[node] == -1:                       # XGBoost leaf: value in split_conditions
+                first = pos
+                for _ in range(depth - level):          # left-most descendant at full depth
+                    first = 2 * first + 1
+                span = 2 ** (depth - level)
+                leaves[ti, first - n_int:first - n_int + span] = cond[node]
+                return
+            if level >= depth:
+                raise ValueError("tree deeper than the declared depth")
+            thr[ti, pos] = np.float32(cond[node])
+            feat[ti, pos] = split[node]
+            fill(left[node], 2 * pos + 1, level + 1)
+            fill(right[node], 2 * pos + 2, level + 1)
+
+        fill(0, 0, 0)
+    return CompleteForest(depth, _base_score(model), thr, feat, leaves)
+
+
+def _c_float(v: float) -> str:
+    """C float literal that round-trips the float32 value (9 significant digits)."""
+    if np.isinf(v):
+        return "INFINITY" if v > 0 else "-INFINITY"
+    s = f"{float(v):.9g}"
+    if not any(ch in s for ch in ".e"):
+        s += ".0"
+    return s + "f"
+
+
+def _floats(a: np.ndarray, per_line: int = 8) -> str:
+    vals = [_c_float(v) for v in a.ravel()]
+    lines = [", ".join(vals[i:i + per_line]) for i in range(0, len(vals), per_line)]
+    return ",\n    ".join(lines)
+
+
+def _ints(a: np.ndarray, per_line: int = 24) -> str:
+    vals = [str(int(v)) for v in a.ravel()]
+    lines = [", ".join(vals[i:i + per_line]) for i in range(0, len(vals), per_line)]
+    return ",\n    ".join(lines)
+
+
+def write_c(forest: CompleteForest, out_dir: Path, feature_names: list[str], meta: dict) -> tuple[Path, Path]:
+    """Write ag_model_data.h / ag_model_data.c (const arrays, placed in flash by the linker)."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    h = out_dir / "ag_model_data.h"
+    c = out_dir / "ag_model_data.c"
+    info = "\n".join(f" * {k}: {v}" for k, v in meta.items())
+    h.write_text(f"""/* Generated by scripts/09_export_firmware_model.py -- do not edit by hand.
+{info}
+ */
+#ifndef AG_MODEL_DATA_H
+#define AG_MODEL_DATA_H
+#include <stdint.h>
+
+#define AG_N_FEATURES {len(feature_names)}
+#define AG_N_TREES {forest.n_trees}
+#define AG_TREE_DEPTH {forest.depth}
+#define AG_TREE_INTERNAL {forest.n_internal}
+#define AG_TREE_LEAVES {2 ** forest.depth}
+
+extern const float   ag_base_score;
+extern const float   ag_thresholds[AG_N_TREES * AG_TREE_INTERNAL];
+extern const uint8_t ag_features[AG_N_TREES * AG_TREE_INTERNAL];
+extern const float   ag_leaves[AG_N_TREES * AG_TREE_LEAVES];
+
+#endif
+""")
+    names = ", ".join(feature_names)
+    c.write_text(f"""/* Generated by scripts/09_export_firmware_model.py -- do not edit by hand.
+ * Inputs, in order: {names}
+ * Flash footprint of the arrays: {forest.flash_bytes()} bytes.
+ */
+#include <math.h>
+#include "ag_model_data.h"
+
+const float ag_base_score = {_c_float(forest.base_score)};
+
+const float ag_thresholds[AG_N_TREES * AG_TREE_INTERNAL] = {{
+    {_floats(forest.thresholds)}
+}};
+
+const uint8_t ag_features[AG_N_TREES * AG_TREE_INTERNAL] = {{
+    {_ints(forest.features)}
+}};
+
+const float ag_leaves[AG_N_TREES * AG_TREE_LEAVES] = {{
+    {_floats(forest.leaves)}
+}};
+""")
+    return h, c

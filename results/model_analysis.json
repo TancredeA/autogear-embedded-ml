@@ -1,0 +1,160 @@
+{
+ "horizon_s": 3,
+ "trees": 100,
+ "decision_nodes": 1446,
+ "leaves": 1546,
+ "storage_bytes_convention": 17752,
+ "gain_shares": {
+  "speed": 0.755662177656607,
+  "slope": 0.1902514215166747,
+  "acceleration": 0.026054187703819478,
+  "restart counter": 0.024527867851402554,
+  "coasting": 0.0035043452714962208
+ },
+ "shift_map": [
+  {
+   "slope": -0.05,
+   "speed_kmh": 10,
+   "development_m": 5.385659217834473,
+   "cadence_rpm": 30.94638184955228
+  },
+  {
+   "slope": -0.05,
+   "speed_kmh": 15,
+   "development_m": 5.856836795806885,
+   "cadence_rpm": 42.685157315461446
+  },
+  {
+   "slope": -0.05,
+   "speed_kmh": 20,
+   "development_m": 6.019774913787842,
+   "cadence_rpm": 55.37305598750186
+  },
+  {
+   "slope": -0.05,
+   "speed_kmh": 25,
+   "development_m": 6.575589656829834,
+   "cadence_rpm": 63.36567340905916
+  },
+  {
+   "slope": -0.05,
+   "speed_kmh": 30,
+   "development_m": 7.290632724761963,
+   "cadence_rpm": 68.58115322443773
+  },
+  {
+   "slope": -0.05,
+   "speed_kmh": 35,
+   "development_m": 8.058260917663574,
+   "cadence_rpm": 72.38948196063946
+  },
+  {
+   "slope": 0.0,
+   "speed_kmh": 10,
+   "development_m": 4.500016689300537,
+   "cadence_rpm": 37.03689967704822
+  },
+  {
+   "slope": 0.0,
+   "speed_kmh": 15,
+   "development_m": 4.761266231536865,
+   "cadence_rpm": 52.50704074140878
+  },
+  {
+   "slope": 0.0,
+   "speed_kmh": 20,
+   "development_m": 4.852471351623535,
+   "cadence_rpm": 68.6935190708147
+  },
+  {
+   "slope": 0.0,
+   "speed_kmh": 25,
+   "development_m": 5.353542327880859,
+   "cadence_rpm": 77.83008728570184
+  },
+  {
+   "slope": 0.0,
+   "speed_kmh": 30,
+   "development_m": 5.935733795166016,
+   "cadence_rpm": 84.23558354439574
+  },
+  {
+   "slope": 0.0,
+   "speed_kmh": 35,
+   "development_m": 6.695835590362549,
+   "cadence_rpm": 87.11882564335012
+  },
+  {
+   "slope": 0.03,
+   "speed_kmh": 10,
+   "development_m": 3.240417718887329,
+   "cadence_rpm": 51.43369809861904
+  },
+  {
+   "slope": 0.03,
+   "speed_kmh": 15,
+   "development_m": 3.494812250137329,
+   "cadence_rpm": 71.53460103333913
+  },
+  {
+   "slope": 0.03,
+   "speed_kmh": 20,
+   "development_m": 3.9890849590301514,
+   "cadence_rpm": 83.56135222910248
+  },
+  {
+   "slope": 0.03,
+   "speed_kmh": 25,
+   "development_m": 5.040322303771973,
+   "cadence_rpm": 82.66667120768254
+  },
+  {
+   "slope": 0.03,
+   "speed_kmh": 30,
+   "development_m": 5.616135597229004,
+   "cadence_rpm": 89.02918943885535
+  },
+  {
+   "slope": 0.03,
+   "speed_kmh": 35,
+   "development_m": 6.3750104904174805,
+   "cadence_rpm": 91.50311740038133
+  },
+  {
+   "slope": 0.06,
+   "speed_kmh": 10,
+   "development_m": 3.1975185871124268,
+   "cadence_rpm": 52.123752255394336
+  },
+  {
+   "slope": 0.06,
+   "speed_kmh": 15,
+   "development_m": 3.5403170585632324,
+   "cadence_rpm": 70.61514431180849
+  },
+  {
+   "slope": 0.06,
+   "speed_kmh": 20,
+   "development_m": 4.1922454833984375,
+   "cadence_rpm": 79.51188322662755
+  },
+  {
+   "slope": 0.06,
+   "speed_kmh": 25,
+   "development_m": 5.3013916015625,
+   "cadence_rpm": 78.59571561245558
+  },
+  {
+   "slope": 0.06,
+   "speed_kmh": 30,
+   "development_m": 5.891736030578613,
+   "cadence_rpm": 84.86463028977492
+  },
+  {
+   "slope": 0.06,
+   "speed_kmh": 35,
+   "development_m": 6.567145824432373,
+   "cadence_rpm": 88.82600583698068
+  }
+ ]
+}
