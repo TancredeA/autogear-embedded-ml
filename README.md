@@ -150,4 +150,4 @@ library, report) is by Tancrède Amiel, October 2026.
 
 ## Licence
 
-Code: MIT (see `LICENSE`). Report: © the author. Public data: their respective licences.
+Noncommercial use only (see [`LICENSE`](LICENSE)). Code: [PolyForm Noncommercial 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0). Report, figures and documentation: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Public data: their respective licences. For commercial use, contact the author.

@@ -8,7 +8,7 @@ version = "1.0.0"
 description = "AutoGear extension: learning to shift without a torque sensor, on a microcontroller"
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "MIT" }
+license = { text = "PolyForm-Noncommercial-1.0.0" }
 authors = [{ name = "Tancrède Amiel" }]
 dependencies = [
     "numpy>=1.26",
