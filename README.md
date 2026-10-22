@@ -7,6 +7,8 @@ one. It asks whether a statistical model, running on the
 prototype's Arduino with only the prototype's sensors, can choose gears better than a decision table,
 even a table given the pedalling torque the product deliberately does without.
 
+🌐 **Project page:** [tancredea.github.io/projects/autogear](https://tancredea.github.io/projects/autogear/)
+
 📄 **Report:** [`report/autogear_extension_report.pdf`](report/autogear_extension_report.pdf) (IEEE format, 10 pages)
 
 | | Retained policy | Best decision table (with torque) |
