@@ -1,4 +1,4 @@
-# AutoGear extension: learning to shift without a torque sensor
+# AutoGear project extension: learning to shift without a torque sensor
 
 **Embedded ML for a low-cost automatic derailleur.** This repository extends AutoGear, the
 four-student project of the CentraleSupélec entrepreneurship track (2025–2026) in which my team and I
